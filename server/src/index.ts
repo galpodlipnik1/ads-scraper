@@ -8,8 +8,6 @@ app.use(cors({ origin: '*' }));
 
 
 await createTableIfNotExists();
-const resData = await scrapeSite();
-await saveScrapes(resData);
 
 app.get('/appartments', async (req, res) => {
   
@@ -28,7 +26,10 @@ app.get('/appartments', async (req, res) => {
   }
 });
 
-
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+const resData = await scrapeSite();
+await saveScrapes(resData);
+

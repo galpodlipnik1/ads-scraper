@@ -57,6 +57,7 @@ export const scrapeSite = async () => {
 };
 
 export const saveScrapes = async (scrapes: any[]): Promise<boolean> => {  
+  console.log('Saving scrapes')
   const client = await db.connect();
   await client.query('DELETE FROM scrapedata');
   for (let i = 0; i < scrapes.length; i++) {
