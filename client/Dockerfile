@@ -13,12 +13,12 @@ RUN npm install
 # Copy app files
 COPY . .
 
+RUN npm run build
 
 # Expose the port that Vite will run on
 EXPOSE 3000
 
 # Start the Vite server
-CMD ["npm", "run", "build"]
 
 FROM nginx
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
